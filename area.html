@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Area Calculator</title>
+</head>
+<body>
+
+    <h1>Rectangle Area Calculator</h1>
+    <p>Refresh the page to run the calculation again.</p>
+
+    <script>
+        let length = parseFloat(prompt("Enter the length of the rectangle:"));
+        let width = parseFloat(prompt("Enter the width of the rectangle:"));
+
+                if (isNaN(length) || isNaN(width))
+        {
+            alert("Error: Please enter valid numbers!");
+        } else 
+        {
+                        let area = length * width;
+
+                      alert("The area of the rectangle is: " + area);
+
+                        document.write("<h3>Calculation Results:</h3>");
+            document.write("Length: " + length + "<br>");
+            document.write("Width: " + width + "<br>");
+            document.write("<strong>Total Area: " + area + " units²</strong>");
+        }
+    </script>
+
+</body>
+</html>
