@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Super Simple Calc</title>
+    <style>
+        /* Simple spacing so it's not cramped */
+        body { text-align: center; margin-top: 50px; font-family: sans-serif; }
+        button { width: 40px; height: 40px; margin: 2px; cursor: pointer; }
+        input { width: 185px; height: 30px; text-align: right; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+
+    <input type="text" id="screen" readonly>
+    <br>
+    <button onclick="press('7')">7</button>
+    <button onclick="press('8')">8</button>
+    <button onclick="press('9')">9</button>
+    <button onclick="press('/')">/</button>
+    <br>
+    <button onclick="press('4')">4</button>
+    <button onclick="press('5')">5</button>
+    <button onclick="press('6')">6</button>
+    <button onclick="press('*')">*</button>
+    <br>
+    <button onclick="press('1')">1</button>
+    <button onclick="press('2')">2</button>
+    <button onclick="press('3')">3</button>
+    <button onclick="press('-')">-</button>
+    <br>
+    <button onclick="clr()">C</button>
+    <button onclick="press('0')">0</button>
+    <button onclick="calc()">=</button>
+    <button onclick="press('+')">+</button>
+
+    <script>
+        let s = document.getElementById('screen');
+
+        // Add number or sign to the input
+        function press(val) { s.value += val; }
+
+        // Clear the input
+        function clr() { s.value = ""; }
+
+        // Do the math
+        function calc() {
+            try {
+                s.value = eval(s.value);
+            } catch {
+                s.value = "Error";
+            }
+        }
+    </script>
+
+</body>
+</html>
