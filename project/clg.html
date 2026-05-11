@@ -1,173 +1,420 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>Amal Jyothi College of Engineering</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        body {
-            font-family: sans-serif;
-            margin: 0;
-            padding: 0;
-            text-align: center;
+<title>Amal Jyothi College of Engineering</title>
 
-            /* Full page background image */
-            background:
-                linear-gradient(rgba(0,0,0,0),
-                rgba(0,0,0,0)),
-                url('footer.jpg');
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
+<style>
 
-            color: white;
-        }
+/* RESET */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-        /* Header with Full Width Banner */
-        header {
-            width: 25%;
-            height:25%;
-            padding: 0;
-            margin: 0;
-            display:flex;
-            justify-content: center;
-            align-items: center; 
-        }
+html{
+    scroll-behavior:smooth;
+}
 
-        header img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
+body{
+    font-family:'Poppins',sans-serif;
+    color:white;
+    overflow-x:hidden;
+}
 
-        /* Navigation Bar */
-        nav {
-            background: rgba(255,255,255,0.2);
-            padding: 15px;
-        }
+/* BACKGROUND */
+body::before{
+    content:'';
+    position:fixed;
+    inset:0;
 
-        nav a {
-            color: white;
-            margin: 0 15px;
-            text-decoration: none;
-            font-weight: bold;
-        }
+    background:
+    linear-gradient(
+        rgba(0,0,0,0.30),
+        rgba(0,0,0,0.40)
+    ),
+    url('footer.jpg');
 
-        /* Banner Section */
-        .banner {
-            padding: 120px 20px;
-        }
+    background-size:cover;
+    background-position:center;
 
-        /* Department Section */
-        .dept-section {
-            padding: 50px 20px;
-        }
+    z-index:-2;
+}
 
-        .dept-section ul {
-            list-style: none;
-            padding: 0;
-        }
+/* NAVBAR */
+nav{
+    position:fixed;
+    top:20px;
+    left:50%;
+    transform:translateX(-50%);
 
-        .dept-section li {
-            margin: 15px 0;
-            font-size: 18px;
-        }
+    width:90%;
+    max-width:1300px;
 
-        /* Footer */
-        footer {
-            background: rgba(0,0,0,0.5);
-            padding: 30px 20px;
-        }
-    </style>
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:15px 25px;
+
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(14px);
+
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:20px;
+
+    z-index:1000;
+}
+
+/* LOGO */
+.logo-container{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.logo-container img{
+    width:55px;
+    height:55px;
+    object-fit:cover;
+    border-radius:10px;
+}
+
+.logo-text h2{
+    font-size:20px;
+    color:#00d4ff;
+}
+
+.logo-text span{
+    font-size:11px;
+    color:#ccc;
+}
+
+/* NAV LINKS */
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:25px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-weight:500;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#00d4ff;
+}
+
+/* HERO */
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:120px 20px 60px;
+}
+
+.hero-content{
+    max-width:900px;
+}
+
+.hero h1{
+    font-size:4rem;
+    font-weight:800;
+    margin-bottom:20px;
+
+    background:linear-gradient(to right,#00d4ff,#ffffff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero p{
+    font-size:1.2rem;
+    color:#ddd;
+    line-height:1.8;
+    margin-bottom:30px;
+}
+
+/* BUTTONS */
+.hero-buttons{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:15px 35px;
+    border:none;
+    border-radius:50px;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.4s;
+    text-decoration:none;
+    display:inline-block;
+}
+
+.primary{
+    background:linear-gradient(45deg,#00d4ff,#0066ff);
+    color:white;
+}
+
+.secondary{
+    background:transparent;
+    border:2px solid rgba(255,255,255,0.3);
+    color:white;
+}
+
+.btn:hover{
+    transform:translateY(-5px);
+}
+
+/* SECTIONS */
+section{
+    padding:90px 8%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.section-title h2{
+    font-size:2.8rem;
+}
+
+/* COURSES */
+.course-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:rgba(255,255,255,0.07);
+    border:1px solid rgba(255,255,255,0.1);
+    padding:28px;
+    border-radius:18px;
+    backdrop-filter:blur(10px);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+.card h3{
+    color:#00d4ff;
+    margin-bottom:10px;
+}
+
+.card a{
+    color:white;
+    text-decoration:none;
+}
+
+/* STATS */
+.stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:20px;
+}
+
+.stat-card{
+    background:rgba(255,255,255,0.07);
+    padding:30px;
+    border-radius:18px;
+    text-align:center;
+}
+
+.stat-card h3{
+    font-size:2.5rem;
+    color:#00d4ff;
+}
+
+/* RECRUITERS */
+.recruiters{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+    gap:15px;
+}
+
+.company{
+    background:rgba(255,255,255,0.07);
+    padding:22px;
+    text-align:center;
+    border-radius:15px;
+    font-weight:600;
+}
+
+/* FOOTER */
+footer{
+    background:#020b16;
+    text-align:center;
+    padding:60px 20px;
+}
+
+footer p{
+    color:#aaa;
+    line-height:1.8;
+}
+
+</style>
 </head>
 
 <body>
 
-    <!-- Header with Full Width Banner Image -->
-    <header>
-        <img src="logo.png" alt="College Banner">
-    </header>
+<!-- NAVBAR -->
+<nav>
 
-    <!-- Navigation -->
-    <nav>
-        <a href="https://www.ajce.in/home/index.html">Home</a>
-        <a href="https://www.ajce.in/home/profile.html">About</a>
-        <a href="https://www.ajce.in/home/btechadmissions.html">Courses</a>
-        <a href="mailto:info@amaljyothi.ac.in">Contact</a>
-    </nav>
+    <div class="logo-container">
+        <img src="logo.png" alt="AJCE Logo">
 
-    <!-- Main Banner -->
-    <div class="banner">
-        <h1>Welcome to Amal Jyothi College of Engineering</h1>
-        <p>Your journey to a bright future starts here.</p>
+        <div class="logo-text">
+            <h2>AJCE</h2>
+            <span>Amal Jyothi College</span>
+        </div>
     </div>
 
-    <!-- Departments -->
-    <div class="dept-section">
-        <h2>Our Departments</h2>
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#courses">Courses</a></li>
+        <li><a href="#placements">Placements</a></li>
+        <li><a href="#infra">Infrastructure</a></li>
+        <li><a href="https://www.ajce.in/home/btechadmissions.html" target="_blank">B.Tech Admission</a></li>
+        <li><a href="https://www.ajce.in/home/mcaadmissions.html" target="_blank">MCA Admission</a></li>
+    </ul>
 
-        <ul>
-            <li>
-                <strong>Department of Computer Science</strong> -
-                Core CS, CS with Cyber Security
-            </li>
+</nav>
 
-            <li>
-                <strong>Department of EC</strong> -
-               Electronics and Communication
-            </li>
+<!-- HERO -->
+<section class="hero">
 
-            <li>
-                <strong>Department of EEE</strong> -
-                Electrical and Electronics Engineering
-            </li>
+    <div class="hero-content">
 
-            <li>
-                <strong>Department of Information Technology</strong> -
-                Artificial Intelligence and Data Science,
-                CS with AI
-            </li>
-            
-            <li>
-                <strong>Department of FT</strong> -
-               Food Technology
-            </li>
-            
-            <li>
-                <strong>Department of Civil Engineering</strong> -
-               Civil Engineering
-            </li>
-            
-            <li>
-                <strong>Department of Mechanical Engineering</strong> -
-               Mechanical Engineering,Mechanical Engineering(Automobile)
-            </li>
-             <li>
-                <strong>Department of Metallurgical and Materials Engineering</strong> -
-               Metallurgical and Materials Engineering
-            </li>
-            
-        </ul>
+        <h1>Amal Jyothi College of Engineering</h1>
+
+        <p>
+            A premier autonomous institution shaping future engineers
+            with innovation, research, and excellence.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a class="btn primary" href="https://www.ajce.in/home/btechadmissions.html" target="_blank">
+                Apply for B.Tech
+            </a>
+
+            <a class="btn secondary" href="https://www.ajce.in/home/mcaadmissions.html" target="_blank">
+                Apply for MCA
+            </a>
+
+        </div>
+
     </div>
 
-    <!-- Footer -->
-    <footer>
-        <p><strong>Contact Us:</strong></p>
+</section>
 
-        <p>
-            Amal Jyothi College of Engineering<br>
-            Kanjirappally, Koovappally P.O.<br>
-            Kottayam Dt., Kerala - 686518
-        </p>
+<!-- COURSES -->
+<section id="courses">
 
-        <p>
-            Email: info@amaljyothi.ac.in |
-            Phone: +91 949 60 94 661
-        </p>
+    <div class="section-title">
+        <h2>Courses Offered</h2>
+    </div>
 
-        <p>© Amal Jyothi College of Engineering</p>
-    </footer>
+    <div class="course-grid">
+
+        <div class="card"><h3>Artificial Intelligence & Data Science</h3></div>
+        <div class="card"><h3>Chemical Engineering</h3></div>
+        <div class="card"><h3>Civil Engineering</h3></div>
+        <div class="card"><h3>Computer Science & Engineering</h3></div>
+        <div class="card"><h3>CSE (AI)</h3></div>
+        <div class="card"><h3>CSE (Cyber Security)</h3></div>
+        <div class="card"><h3>Electronics & Communication</h3></div>
+        <div class="card"><h3>Electrical & Electronics</h3></div>
+        <div class="card"><h3>Food Technology</h3></div>
+        <div class="card"><h3>Mechanical Engineering</h3></div>
+        <div class="card"><h3>Mechanical (Automobile)</h3></div>
+        <div class="card"><h3>Metallurgical & Materials Engineering</h3></div>
+
+        <div class="card">
+            <h3><a href="https://www.ajce.in/home/btechadmissions.html" target="_blank">BCA (Integrated)</a></h3>
+        </div>
+
+        <div class="card">
+            <h3><a href="https://www.ajce.in/home/btechadmissions.html" target="_blank">BCA</a></h3>
+        </div>
+
+        <div class="card">
+            <h3><a href="https://www.ajce.in/home/mcaadmissions.html" target="_blank">MCA</a></h3>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- STATS -->
+<section>
+
+    <div class="section-title">
+        <h2>Campus Highlights</h2>
+    </div>
+
+    <div class="stats">
+
+        <div class="stat-card"><h3>65+</h3><p>Acres Campus</p></div>
+        <div class="stat-card"><h3>3500+</h3><p>Students</p></div>
+        <div class="stat-card"><h3>240+</h3><p>Faculty</p></div>
+        <div class="stat-card"><h3>95+</h3><p>Startups</p></div>
+
+    </div>
+
+</section>
+
+<!-- RECRUITERS -->
+<section id="placements">
+
+    <div class="section-title">
+        <h2>Top Recruiters</h2>
+    </div>
+
+    <div class="recruiters">
+        <div class="company">TCS</div>
+        <div class="company">Infosys</div>
+        <div class="company">Wipro</div>
+        <div class="company">UST</div>
+        <div class="company">Cognizant</div>
+        <div class="company">Bosch</div>
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+
+    <p><strong>Amal Jyothi College of Engineering</strong></p>
+
+    <p>
+        Kanjirappally, Kerala - 686518<br>
+        Email: info@ajce.in | Phone: +91 9072661610
+    </p>
+
+    <p>© 2026 AJCE</p>
+
+</footer>
 
 </body>
 </html>
